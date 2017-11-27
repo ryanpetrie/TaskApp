@@ -22,7 +22,7 @@ namespace TaskAppLogic
     {
         string Title { get; set; }
         string Description { get; set; }
-        string AssignedTo { get; set; }
+        IUser AssignedTo { get; set; }
         DateTime Due { get; set; }
         Priority Priority { get; set; }
     }
@@ -34,7 +34,7 @@ namespace TaskAppLogic
 
     public interface ITaskDatabase
     {
-        IEnumerable<ITask> GetTasks(string userName);
+        IEnumerable<ITask> GetTasks(IUser user);
         ITask NewTask();
         void SaveTask(ITask task);
     }
