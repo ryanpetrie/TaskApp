@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TaskAppLogic
 {
-    public class MyTaskDatabase : ITaskDatabase
+    public class MockTaskDatabase : ITaskDatabase
     {
         public IEnumerable<ITask> GetTasks(IUser user)
         {

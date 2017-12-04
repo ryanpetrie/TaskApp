@@ -27,7 +27,7 @@ namespace TaskAppTests
             IUserDatabase userDb = new MyUserDatabase();
             IUser george = userDb.Login("george", "monkey!");
 
-            ITaskDatabase database = new MyTaskDatabase();
+            ITaskDatabase database = new MockTaskDatabase();
 
             ITask task = database.NewTask();
             task.AssignedTo = george;

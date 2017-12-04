@@ -41,9 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces.cs" />
-    <Compile Include="MyTaskDatabase.cs" />
+    <Compile Include="MockTaskDatabase.cs" />
     <Compile Include="MyUserDatabase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlTaskDatabase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
