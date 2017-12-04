@@ -29,7 +29,7 @@ namespace TaskAppLogic
 
     public interface IUserDatabase
     {
-        IUser GetUser(string username, string password);
+        IUser Login(string username, string password);
     }
 
     public interface ITaskDatabase

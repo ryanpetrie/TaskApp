@@ -8,7 +8,7 @@ namespace TaskAppLogic
 {
     public class MyUserDatabase : IUserDatabase
     {
-        public IUser GetUser(string username, string password)
+        public IUser Login(string username, string password)
         {
             var user = new MyUser();
             user.UserName = username;

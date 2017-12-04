@@ -10,6 +10,9 @@ namespace TaskApp
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to TaskApp!");
+            App app = new App();
+            app.Run();
         }
     }
 }

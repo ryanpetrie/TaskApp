@@ -43,9 +43,9 @@ namespace TaskAppLogic
     internal class MyTask : ITask
     {
         public string Title { get; set; }
-        public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Description { get; set; }
         public IUser AssignedTo { get; set; }
-        public DateTime Due { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Priority Priority { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DateTime Due { get; set; }
+        public Priority Priority { get; set; }
     }
 }

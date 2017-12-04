@@ -16,7 +16,7 @@ namespace TaskAppTests
         {
             IUserDatabase database = new MyUserDatabase();
 
-            IUser george = database.GetUser("george", "monkey!");
+            IUser george = database.Login("george", "monkey!");
             Assert.IsNotNull(george);
             Assert.AreEqual("george", george.UserName);
         }
@@ -25,7 +25,7 @@ namespace TaskAppTests
         public void TaskTest()
         {
             IUserDatabase userDb = new MyUserDatabase();
-            IUser george = userDb.GetUser("george", "monkey!");
+            IUser george = userDb.Login("george", "monkey!");
 
             ITaskDatabase database = new MyTaskDatabase();
 
