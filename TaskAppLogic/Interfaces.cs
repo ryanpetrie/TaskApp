@@ -18,6 +18,10 @@ namespace TaskAppLogic
         string UserName { get; }
     }
 
+    public interface ILoggedInUser : IUser
+    {
+    }
+
     public interface ITask
     {
         string Title { get; set; }
@@ -29,7 +33,8 @@ namespace TaskAppLogic
 
     public interface IUserDatabase
     {
-        IUser Login(string username, string password);
+        ILoggedInUser Login(string username, string password);
+        IUser GetUser(string username);
     }
 
     public interface ITaskDatabase

@@ -8,17 +8,29 @@ namespace TaskAppLogic
 {
     public class MyUserDatabase : IUserDatabase
     {
-        public IUser Login(string username, string password)
+        public ILoggedInUser Login(string username, string password)
         {
-            var user = new MyUser();
+            var user = new MyLoggedInUser();
             user.UserName = username;
+            mUsers.Add(user);
             return user;
         }
+
+        public IUser GetUser(string username)
+        {
+            return mUsers.Find(u => u.UserName == username);
+        }
+
+        private readonly List<MyUser> mUsers = new List<MyUser>();
     }
 
     public class MyUser : IUser
     {
         public string UserName { get; internal set; }
+    }
+
+    class MyLoggedInUser : MyUser, ILoggedInUser
+    {
     }
 
 }

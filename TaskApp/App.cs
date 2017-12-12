@@ -79,7 +79,7 @@ What'll it be? ");
         }
 
         private IUserDatabase mUserDb = new MyUserDatabase();
-        private ITaskDatabase mTaskDb = new MockTaskDatabase();
+        private ITaskDatabase mTaskDb = new XmlTaskDatabase("tasks.xml");
         private IUser mLoggedInUser = null;
     }
 }
