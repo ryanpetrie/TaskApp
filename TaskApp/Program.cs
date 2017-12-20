@@ -10,6 +10,9 @@ namespace TaskApp
     {
         static void Main(string[] args)
         {
+            //var db = new TaskAppLogic.XmlUserDatabase("users.xml");
+            //db.AddUser("george", "monkey!");
+
             Console.WriteLine("Welcome to TaskApp!");
             App app = new App();
             app.Run();

@@ -47,5 +47,6 @@ namespace TaskAppLogic
         public IUser AssignedTo { get; set; }
         public DateTime Due { get; set; }
         public Priority Priority { get; set; }
+        public bool Completed { get; set; }
     }
 }

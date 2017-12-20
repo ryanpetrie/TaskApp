@@ -21,12 +21,18 @@ namespace TaskAppLogic
                 {
                     mTasks = (List<XmlTask>)mSerializer.Deserialize(input);
                 }
+
+                // Fix up references to users.
+                foreach (var task in mTasks)
+                {
+                    task.AssignedTo = mUserDatabase.GetUser(task.AssignedToUserName);
+                }
             }
         }
 
         public IEnumerable<ITask> GetTasks(IUser user)
         {
-            throw new NotImplementedException();
+            return mTasks.Cast<ITask>().Where(t => t.AssignedTo == user);
         }
 
         public ITask NewTask()
@@ -48,6 +54,17 @@ namespace TaskAppLogic
                 mTasks.Add(xmlTask);
             }
 
+            Save();
+        }
+
+        private void Save()
+        {
+            // Make sure user names are saved.
+            foreach (var task in mTasks)
+            {
+                task.AssignedToUserName = task.AssignedTo?.UserName;
+            }
+
             using (FileStream output = File.Create(mFilename))
             {
                 mSerializer.Serialize(output, mTasks);
@@ -67,6 +84,7 @@ namespace TaskAppLogic
         [XmlIgnore] public IUser AssignedTo { get; set; }
         public DateTime Due { get; set; }
         public Priority Priority { get; set; }
+        public bool Completed { get; set; }
 
         [XmlElement("AssignedTo")]
         public string AssignedToUserName;

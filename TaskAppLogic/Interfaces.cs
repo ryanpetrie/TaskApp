@@ -18,8 +18,9 @@ namespace TaskAppLogic
         string UserName { get; }
     }
 
-    public interface ILoggedInUser : IUser
+    public interface ILoggedInUser
     {
+        IUser User { get; }
     }
 
     public interface ITask
@@ -29,6 +30,7 @@ namespace TaskAppLogic
         IUser AssignedTo { get; set; }
         DateTime Due { get; set; }
         Priority Priority { get; set; }
+        bool Completed { get; set; }
     }
 
     public interface IUserDatabase
